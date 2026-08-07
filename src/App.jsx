@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-
-const ASSET = "/assets/image/";
+import sushiSticker from "../assets/image/ステッカー寿司.png";
+import donutSticker from "../assets/image/ステッカードーナツ.png";
+import ghostSticker from "../assets/image/ステッカーお化け.png";
+import coffeeSticker from "../assets/image/ステッカーコーヒー.png";
+import coverDefault from "../assets/image/表紙キャラクター青-transparent.png";
+import coverFed from "../assets/image/表紙キャラクター青満腹-transparent.png";
+import coverDislike from "../assets/image/表紙キャラクター青苦手-transparent.png";
+import posterImage from "../assets/image/ドローイング展ポスター.png";
+import drawingImage from "../assets/image/ドローイング作品.png";
+import closingDog from "../assets/image/犬後ろ姿-transparent.png";
+import loadingDog from "../assets/image/犬イラスト-transparent.png";
 const sections = ["HOME", "STORY", "WORKS", "CONNECT"];
 
 function SectionLinks({ current, className = "chapter-nav" }) {
@@ -104,10 +113,10 @@ function MarkerTrail({ enabled }) {
 }
 
 const foodItems = [
-  { id: "sushi", label: "お寿司を食べさせる", image: "ステッカー寿司.png", alt: "お寿司のステッカー", reaction: "like" },
-  { id: "donut", label: "ドーナツを食べさせる", image: "ステッカードーナツ.png", alt: "ドーナツのステッカー", reaction: "like" },
-  { id: "ghost", label: "お化けを近づける", image: "ステッカーお化け.png", alt: "お化けのステッカー", reaction: "dislike" },
-  { id: "coffee", label: "コーヒーを近づける", image: "ステッカーコーヒー.png", alt: "コーヒーのステッカー", reaction: "dislike" },
+  { id: "sushi", label: "お寿司を食べさせる", image: sushiSticker, alt: "お寿司のステッカー", reaction: "like" },
+  { id: "donut", label: "ドーナツを食べさせる", image: donutSticker, alt: "ドーナツのステッカー", reaction: "like" },
+  { id: "ghost", label: "お化けを近づける", image: ghostSticker, alt: "お化けのステッカー", reaction: "dislike" },
+  { id: "coffee", label: "コーヒーを近づける", image: coffeeSticker, alt: "コーヒーのステッカー", reaction: "dislike" },
 ];
 
 function Cover({ markerEnabled, setMarkerEnabled }) {
@@ -165,7 +174,7 @@ function Cover({ markerEnabled, setMarkerEnabled }) {
     drag.current.id = undefined;
   };
 
-  const character = reaction === "fed" ? "表紙キャラクター青満腹-transparent.png" : reaction === "dislike" ? "表紙キャラクター青苦手-transparent.png" : "表紙キャラクター青-transparent.png";
+  const character = reaction === "fed" ? coverFed : reaction === "dislike" ? coverDislike : coverDefault;
   const alt = reaction === "fed" ? "食べて満足し、お腹をさすっているキャラクター" : reaction === "dislike" ? "苦手なものを嫌そうに避けているキャラクター" : "食べ物を待っているキャラクター";
 
   return (
@@ -173,13 +182,13 @@ function Cover({ markerEnabled, setMarkerEnabled }) {
       <div className="book-panel" aria-label="ポートフォリオの本">
         <div className="book-panel__edge" aria-hidden="true" />
         <div className="book-page is-active">
-          <img ref={characterRef} className={`book-page__character${reaction === "fed" ? " is-fed" : reaction === "dislike" ? " is-disliked" : ""}`} src={`${ASSET}${character}`} alt={alt} />
+          <img ref={characterRef} className={`book-page__character${reaction === "fed" ? " is-fed" : reaction === "dislike" ? " is-disliked" : ""}`} src={character} alt={alt} />
           {foodItems.map((item) => (
             <button key={item.id} className={`food-token food-token--${item.id}${eaten === item.id ? " is-eaten" : ""}`} type="button" aria-label={item.label}
               onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={(event) => pointerUp(event, item)}
               onPointerCancel={(event) => { event.currentTarget.classList.remove("is-dragging"); resetPosition(event.currentTarget); drag.current = {}; }}
               onClick={(event) => { if (!drag.current.moved) reactTo(item, event.currentTarget); drag.current.moved = false; }}>
-              <img src={`${ASSET}${item.image}`} alt={item.alt} />
+              <img src={item.image} alt={item.alt} />
             </button>
           ))}
         </div>
@@ -247,8 +256,8 @@ function Works() {
       <SectionLinks current="WORKS" />
       <FlipBook>
         <template>{({ go }) => <><div className="spread-page spread-page--left"><p className="chapter-kicker">03 / SELECTED WORKS</p><h2>works</h2><p className="spread-page__caption">今まで作った作品についてご覧ください。</p></div><div className="spread-page spread-page--right story-contents works-contents"><p className="story-contents__label">WORKS INDEX</p><div className="story-contents__list"><button type="button" onClick={() => go(1)}><span>01</span> 2人でのポスター制作</button><button type="button" onClick={() => go(2)}><span>02</span> 自身のドローイング</button><button type="button" disabled><span>03</span> Next Project <small>COMING SOON</small></button><button type="button" disabled><span>04</span> Next Project <small>COMING SOON</small></button></div></div><Corner direction="next" onClick={() => go(1)} label="次の作品をめくる" /></>}</template>
-        <template className="work-sheet work-sheet--poster">{({ go }) => <><div className="work-detail work-detail--media"><p className="chapter-kicker">03 / SELECTED WORKS — 01</p><p className="work-detail__index">2025/冬</p><figure className="work-sheet__image"><img src={`${ASSET}ドローイング展ポスター.png`} alt="ドローイング展のポスター" /></figure><p className="work-detail__tags">#グラフィックデザイン　#共同　#ポスター</p></div><div className="work-detail work-detail--text"><p className="work-detail__label">WORK NOTE / 01</p><h3>2人でのポスター制作</h3><p>２人で行った作品の入り口の紹介になるポスター。デザインの趣味が違う中で一つのお題に対して、絶対に伝えたい思いと、自身たちの個性を結合。作品への繋がり、また、見かける人の興味の割合を考え、モノトーンでシンプルなのに目を引くデザインに。</p></div><Corner direction="prev" onClick={() => go(0)} label="Worksの前の内容へ戻る" /><Corner direction="next" onClick={() => go(2)} label="次の作品をめくる" /></>}</template>
-        <template className="work-sheet work-sheet--drawing">{({ go }) => <><div className="work-detail work-detail--media"><p className="chapter-kicker">03 / SELECTED WORKS — 02</p><p className="work-detail__index">2025/冬</p><figure className="work-sheet__image work-sheet__image--drawing"><img src={`${ASSET}ドローイング作品.png`} alt="自然と人の姿を重ねたドローイング作品" /></figure><p className="work-detail__tags">#ドローイング　#アート</p></div><div className="work-detail work-detail--text"><p className="work-detail__label">WORK NOTE / 02</p><h3>自身のドローイング</h3><p>ドローイングとは作品の原点であり、その人の思考や感情を映し出す。私は自然と人を重ねて何かを考えることが多い。見る角度を変えることで日常の自然に隠れている人の影が見えるのを、顔の形がついたカーテン、背景と透過した人で表現した作品。</p></div><Corner direction="prev" onClick={() => go(1)} label="Worksの前の内容へ戻る" /></>}</template>
+        <template className="work-sheet work-sheet--poster">{({ go }) => <><div className="work-detail work-detail--media"><p className="chapter-kicker">03 / SELECTED WORKS — 01</p><p className="work-detail__index">2025/冬</p><figure className="work-sheet__image"><img src={posterImage} alt="ドローイング展のポスター" /></figure><p className="work-detail__tags">#グラフィックデザイン　#共同　#ポスター</p></div><div className="work-detail work-detail--text"><p className="work-detail__label">WORK NOTE / 01</p><h3>2人でのポスター制作</h3><p>２人で行った作品の入り口の紹介になるポスター。デザインの趣味が違う中で一つのお題に対して、絶対に伝えたい思いと、自身たちの個性を結合。作品への繋がり、また、見かける人の興味の割合を考え、モノトーンでシンプルなのに目を引くデザインに。</p></div><Corner direction="prev" onClick={() => go(0)} label="Worksの前の内容へ戻る" /><Corner direction="next" onClick={() => go(2)} label="次の作品をめくる" /></>}</template>
+        <template className="work-sheet work-sheet--drawing">{({ go }) => <><div className="work-detail work-detail--media"><p className="chapter-kicker">03 / SELECTED WORKS — 02</p><p className="work-detail__index">2025/冬</p><figure className="work-sheet__image work-sheet__image--drawing"><img src={drawingImage} alt="自然と人の姿を重ねたドローイング作品" /></figure><p className="work-detail__tags">#ドローイング　#アート</p></div><div className="work-detail work-detail--text"><p className="work-detail__label">WORK NOTE / 02</p><h3>自身のドローイング</h3><p>ドローイングとは作品の原点であり、その人の思考や感情を映し出す。私は自然と人を重ねて何かを考えることが多い。見る角度を変えることで日常の自然に隠れている人の影が見えるのを、顔の形がついたカーテン、背景と透過した人で表現した作品。</p></div><Corner direction="prev" onClick={() => go(1)} label="Worksの前の内容へ戻る" /></>}</template>
       </FlipBook>
     </section>
   );
@@ -286,7 +295,7 @@ function Contact() {
           </form><iframe className="contact-response" name="contact-response" title="フォーム送信結果" onLoad={responseLoaded} />
         </div>
       </div>
-      <div className="closing-book"><BookTabs current="CONNECT" closing /><div className="closing-book__inner"><img className="closing-book__character" src={`${ASSET}犬後ろ姿-transparent.png`} alt="後ろ姿の犬" /></div><a className="closing-book__back" href="#home">↑ はじめに戻る</a></div>
+      <div className="closing-book"><BookTabs current="CONNECT" closing /><div className="closing-book__inner"><img className="closing-book__character" src={closingDog} alt="後ろ姿の犬" /></div><a className="closing-book__back" href="#home">↑ はじめに戻る</a></div>
     </section>
   );
 }
@@ -303,7 +312,7 @@ function Loader() {
     return () => { window.clearInterval(interval); [opening, revealing, finished].forEach(clearTimeout); };
   }, []);
   return (
-    <div className={`loader ${phase}`} role="status" aria-live="polite" aria-label="読み込み中"><div className="loader__grain" aria-hidden="true" /><div className="books" aria-hidden="true"><div className="book book--left"><span className="book__pages" /><span className="book__cover" /></div><div className="book book--center"><span className="book__pages" /><span className="book__cover"><span className="book__border" /></span></div><div className="book book--right"><span className="book__pages" /><span className="book__cover" /></div></div><div className="loader__content"><svg className="loading-arc" viewBox="0 0 360 160" aria-hidden="true"><defs><path id="loading-path" d="M 54 122 Q 180 2 306 122" /></defs><text><textPath href="#loading-path" startOffset="50%" textAnchor="middle">loading<tspan className="loading-dots">{dots}</tspan></textPath></text></svg><div className="character-wrap"><img className="character" src={`${ASSET}犬イラスト-transparent.png`} alt="" width="1254" height="1254" /></div></div><p className="loader__note">ページをひらいています</p></div>
+    <div className={`loader ${phase}`} role="status" aria-live="polite" aria-label="読み込み中"><div className="loader__grain" aria-hidden="true" /><div className="books" aria-hidden="true"><div className="book book--left"><span className="book__pages" /><span className="book__cover" /></div><div className="book book--center"><span className="book__pages" /><span className="book__cover"><span className="book__border" /></span></div><div className="book book--right"><span className="book__pages" /><span className="book__cover" /></div></div><div className="loader__content"><svg className="loading-arc" viewBox="0 0 360 160" aria-hidden="true"><defs><path id="loading-path" d="M 54 122 Q 180 2 306 122" /></defs><text><textPath href="#loading-path" startOffset="50%" textAnchor="middle">loading<tspan className="loading-dots">{dots}</tspan></textPath></text></svg><div className="character-wrap"><img className="character" src={loadingDog} alt="" width="1254" height="1254" /></div></div><p className="loader__note">ページをひらいています</p></div>
   );
 }
 
