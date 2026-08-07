@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import sushiSticker from "../assets/image/ステッカー寿司.png";
-import donutSticker from "../assets/image/ステッカードーナツ.png";
-import ghostSticker from "../assets/image/ステッカーお化け.png";
-import coffeeSticker from "../assets/image/ステッカーコーヒー.png";
-import coverDefault from "../assets/image/表紙キャラクター青-transparent.png";
-import coverFed from "../assets/image/表紙キャラクター青満腹-transparent.png";
-import coverDislike from "../assets/image/表紙キャラクター青苦手-transparent.png";
-import posterImage from "../assets/image/ドローイング展ポスター.png";
-import drawingImage from "../assets/image/ドローイング作品.png";
-import closingDog from "../assets/image/犬後ろ姿-transparent.png";
-import loadingDog from "../assets/image/犬イラスト-transparent.png";
+import sushiSticker from "../assets/image/sticker-sushi.png";
+import donutSticker from "../assets/image/sticker-donut.png";
+import ghostSticker from "../assets/image/sticker-ghost.png";
+import coffeeSticker from "../assets/image/sticker-coffee.png";
+import coverDefault from "../assets/image/cover-default.png";
+import coverFed from "../assets/image/cover-fed.png";
+import coverDislike from "../assets/image/cover-dislike.png";
+import posterImage from "../assets/image/work-poster.png";
+import drawingImage from "../assets/image/work-drawing.png";
+import closingDog from "../assets/image/dog-back.png";
+import loadingDog from "../assets/image/dog-loading.png";
 const sections = ["HOME", "STORY", "WORKS", "CONNECT"];
 
 function SectionLinks({ current, className = "chapter-nav" }) {
