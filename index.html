@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4682b4" />
+    <title>Kairi Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="portfolio" aria-label="福西かい里のポートフォリオ">
+      <section class="chapter chapter--home" id="home">
+        <div class="book-panel" aria-label="ポートフォリオの本">
+          <div class="book-panel__edge" aria-hidden="true"></div>
+          <div class="book-page is-active">
+            <img class="book-page__character" src="./assets/image/表紙キャラクター青-transparent.png" data-default-src="./assets/image/表紙キャラクター青-transparent.png" data-fed-src="./assets/image/表紙キャラクター青満腹-transparent.png" data-dislike-src="./assets/image/表紙キャラクター青苦手-transparent.png" alt="食べ物を待っているキャラクター" />
+            <button class="food-token food-token--sushi" type="button" data-reaction="like" aria-label="お寿司を食べさせる"><img src="./assets/image/ステッカー寿司.png" alt="お寿司のステッカー" /></button>
+            <button class="food-token food-token--donut" type="button" data-reaction="like" aria-label="ドーナツを食べさせる"><img src="./assets/image/ステッカードーナツ.png" alt="ドーナツのステッカー" /></button>
+            <button class="food-token food-token--ghost" type="button" data-reaction="dislike" aria-label="お化けを近づける"><img src="./assets/image/ステッカーお化け.png" alt="お化けのステッカー" /></button>
+            <button class="food-token food-token--coffee" type="button" data-reaction="dislike" aria-label="コーヒーを近づける"><img src="./assets/image/ステッカーコーヒー.png" alt="コーヒーのステッカー" /></button>
+          </div>
+
+          <nav class="book-tabs" aria-label="ページを選ぶ">
+            <a class="book-tab is-active" href="#home"><span>HOME</span></a>
+            <a class="book-tab" href="#story"><span>STORY</span></a>
+            <a class="book-tab" href="#works"><span>WORKS</span></a>
+            <a class="book-tab" href="#connect"><span>CONNECT</span></a>
+          </nav>
+        </div>
+
+        <div class="intro-panel">
+          <div class="intro-copy is-active">
+            <h2 class="intro-copy__name">Fukunishi Kairi<br /><span>portfolio</span></h2>
+            <p class="intro-copy__tagline">子供心を忘れない高専生</p>
+          </div>
+          <p class="intro-panel__updated">最終更新日　2026.08.07</p>
+        </div>
+        <button class="marker-toggle marker-toggle--floating" type="button" aria-pressed="true" aria-label="マーカーの軌跡をオフにする" title="マーカー ON/OFF">
+          <span class="marker-toggle__text">マーカー ON</span>
+        </button>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>FUKUNISHI KAIERI PORTFOLIO　　　FUKUNISHI KAIERI PORTFOLIO　　　</span>
+          <span>FUKUNISHI KAIERI PORTFOLIO　　　FUKUNISHI KAIERI PORTFOLIO　　　</span>
+        </div>
+      </div>
+
+      <section class="chapter chapter--spread" id="story">
+        <nav class="chapter-nav" aria-label="サイト内メニュー">
+          <a href="#home">HOME</a>
+          <a class="is-current" href="#story">STORY</a>
+          <a href="#works">WORKS</a>
+          <a href="#connect">CONNECT</a>
+        </nav>
+        <div class="flipbook" data-flipbook>
+          <article class="flip-sheet is-active">
+            <div class="spread-page spread-page--left">
+              <p class="chapter-kicker">02 / MY STORY</p><h2>STORY</h2>
+              <p class="spread-page__caption">今まで歩みをご覧ください。</p>
+            </div>
+            <div class="spread-page spread-page--right story-contents">
+              <p class="story-contents__label">TABLE OF CONTENTS</p>
+              <div class="story-contents__list">
+                <button type="button" data-flip-index="1"><span>01</span> 誕生</button>
+                <button type="button" data-flip-index="2"><span>02</span> 高校受験</button>
+                <button type="button" disabled><span>03</span> これからのページ <small>COMING SOON</small></button>
+                <button type="button" disabled><span>04</span> これからのページ <small>COMING SOON</small></button>
+              </div>
+            </div>
+            <button class="page-corner page-corner--next" type="button" data-flip="next" aria-label="成り立ちの次の内容を表示する"><span>次のページ</span></button>
+          </article>
+          <article class="flip-sheet">
+            <div class="story-detail story-detail--media">
+              <p class="chapter-kicker">02 / MY STORY — 02</p>
+              <p class="story-detail__date">2008/6/25</p>
+              <div class="story-detail__visual" aria-label="写真を追加する場所"><span>PHOTO</span></div>
+              <p class="story-detail__tags">#誕生</p>
+            </div>
+            <div class="story-detail story-detail--text story-diary">
+              <p class="story-diary__label">DIARY / 01</p>
+              <h3>生誕する</h3>
+              <p>2兄弟の長女として、香川県に生まれる。泣くことも少なく。<br />おじいちゃんと共に育ち、おじいちゃん子になる。</p>
+            </div>
+            <button class="page-corner page-corner--prev" type="button" data-flip="prev" aria-label="成り立ちの前の内容へ戻る"><span>前のページ</span></button>
+            <button class="page-corner page-corner--next" type="button" data-flip="next" aria-label="成り立ちの次の内容をめくる"><span>次のページ</span></button>
+          </article>
+          <article class="flip-sheet">
+            <div class="story-detail story-detail--media">
+              <p class="chapter-kicker">02 / MY STORY — 03</p>
+              <p class="story-detail__date">15歳 / 高校受験</p>
+              <div class="story-detail__visual story-detail__visual--second" aria-label="写真を追加する場所"><span>PHOTO</span></div>
+              <p class="story-detail__tags">#高校受験　#高専　#寮生活</p>
+            </div>
+            <div class="story-detail story-detail--text story-diary">
+              <p class="story-diary__label">DIARY / 02</p>
+              <h3>高校受験</h3>
+              <p>神山まるごと高専を知り、くることを決意。15歳で親から離れ寮生活を選ぶ。不安なこともありつつ、同じ決断をした仲間と今までと違う生活に。</p>
+            </div>
+            <button class="page-corner page-corner--prev" type="button" data-flip="prev" aria-label="成り立ちの前の内容へ戻る"><span>前のページ</span></button>
+          </article>
+        </div>
+      </section>
+
+      <div class="marquee marquee--reverse" aria-hidden="true">
+        <div class="marquee__track">
+          <span>COMING SOON　　　COMING SOON　　　COMING SOON　　　COMING SOON　　　</span>
+          <span>COMING SOON　　　COMING SOON　　　COMING SOON　　　COMING SOON　　　</span>
+        </div>
+      </div>
+
+      <section class="chapter chapter--spread chapter--works" id="works">
+        <nav class="chapter-nav" aria-label="サイト内メニュー">
+          <a href="#home">HOME</a>
+          <a href="#story">STORY</a>
+          <a class="is-current" href="#works">WORKS</a>
+          <a href="#connect">CONNECT</a>
+        </nav>
+        <div class="flipbook" data-flipbook>
+          <article class="flip-sheet is-active">
+            <div class="spread-page spread-page--left"><p class="chapter-kicker">03 / SELECTED WORKS</p><h2>works</h2><p class="spread-page__caption">今まで作った作品についてご覧ください。</p></div>
+            <div class="spread-page spread-page--right story-contents works-contents">
+              <p class="story-contents__label">WORKS INDEX</p>
+              <div class="story-contents__list">
+                <button type="button" data-flip-index="1"><span>01</span> 2人でのポスター制作</button>
+                <button type="button" data-flip-index="2"><span>02</span> 自身のドローイング</button>
+                <button type="button" disabled><span>03</span> Next Project <small>COMING SOON</small></button>
+                <button type="button" disabled><span>04</span> Next Project <small>COMING SOON</small></button>
+              </div>
+            </div>
+            <button class="page-corner page-corner--next" type="button" data-flip="next" aria-label="次の作品をめくる"><span>次のページ</span></button>
+          </article>
+          <article class="flip-sheet work-sheet work-sheet--poster">
+            <div class="work-detail work-detail--media">
+              <p class="chapter-kicker">03 / SELECTED WORKS — 01</p>
+              <p class="work-detail__index">2025/冬</p>
+              <figure class="work-sheet__image">
+                <img src="./assets/image/ドローイング展ポスター.png" alt="ドローイング展のポスター" />
+              </figure>
+              <p class="work-detail__tags">#グラフィックデザイン　#共同　#ポスター</p>
+            </div>
+            <div class="work-detail work-detail--text">
+              <p class="work-detail__label">WORK NOTE / 01</p>
+              <h3>2人でのポスター制作</h3>
+              <p>
+                ２人で行った作品の入り口の紹介になるポスター。デザインの趣味が違う中で一つのお題に対して、絶対に伝えたい思いと、自身たちの個性を結合。作品への繋がり、また、見かける人の興味の割合を考え、モノトーンでシンプルなのに目を引くデザインに。
+              </p>
+            </div>
+            <button class="page-corner page-corner--prev" type="button" data-flip="prev" aria-label="Worksの前の内容へ戻る"><span>前のページ</span></button>
+            <button class="page-corner page-corner--next" type="button" data-flip="next" aria-label="次の作品をめくる"><span>次のページ</span></button>
+          </article>
+          <article class="flip-sheet work-sheet work-sheet--drawing">
+            <div class="work-detail work-detail--media">
+              <p class="chapter-kicker">03 / SELECTED WORKS — 02</p>
+              <p class="work-detail__index">2025/冬</p>
+              <figure class="work-sheet__image work-sheet__image--drawing">
+                <img src="./assets/image/ドローイング作品.png" alt="自然と人の姿を重ねたドローイング作品" />
+              </figure>
+              <p class="work-detail__tags">#ドローイング　#アート</p>
+            </div>
+            <div class="work-detail work-detail--text">
+              <p class="work-detail__label">WORK NOTE / 02</p>
+              <h3>自身のドローイング</h3>
+              <p>
+                ドローイングとは作品の原点であり、その人の思考や感情を映し出す。私は自然と人を重ねて何かを考えることが多い。見る角度を変えることで日常の自然に隠れている人の影が見えるのを、顔の形がついたカーテン、背景と透過した人で表現した作品。
+              </p>
+            </div>
+            <button class="page-corner page-corner--prev" type="button" data-flip="prev" aria-label="Worksの前の内容へ戻る"><span>前のページ</span></button>
+          </article>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>FUKUNISHI KAIERI PORTFOLIO　　　FUKUNISHI KAIERI PORTFOLIO　　　</span>
+          <span>FUKUNISHI KAIERI PORTFOLIO　　　FUKUNISHI KAIERI PORTFOLIO　　　</span>
+        </div>
+      </div>
+
+      <section class="chapter chapter--connect" id="connect">
+        <div class="connect-copy">
+          <nav class="connect-mobile-tabs" aria-label="ページを選ぶ">
+            <a href="#home">HOME</a>
+            <a href="#story">STORY</a>
+            <a href="#works">WORKS</a>
+            <a class="is-active" href="#connect">CONNECT</a>
+          </nav>
+          <div class="contact-form-embed">
+            <div class="contact-form-embed__heading">
+              <div>
+                <h3>お問合せ</h3>
+              </div>
+            </div>
+            <form
+              class="contact-form"
+              action="https://docs.google.com/forms/d/e/1FAIpQLScOcsVEeaOzsQSSX911flsh9IUj591ZSUVKOrDMCXDcEiVzyA/formResponse"
+              method="post"
+              target="contact-response"
+            >
+              <div class="contact-form__row">
+                <label>名前 <span>*</span><input name="entry.1486817881" type="text" autocomplete="name" required placeholder="福西 かい里" /></label>
+                <label>ふりがな <span>*</span><input id="contact-kana" type="text" required placeholder="ふくにし かいり" /></label>
+              </div>
+              <label>連絡先（Instagram または Gmail） <span>*</span><input name="entry.1113090130" type="text" required placeholder="@instagram / example@gmail.com" /></label>
+              <label>要件 <span>*</span><textarea id="contact-message" required placeholder="お問い合わせ内容をご記入ください"></textarea></label>
+              <input id="contact-combined-message" name="entry.701852948" type="hidden" />
+              <button class="contact-form__submit" type="submit">送信する <span aria-hidden="true">→</span></button>
+              <p class="contact-form__status" role="status" aria-live="polite"></p>
+            </form>
+            <iframe class="contact-response" name="contact-response" title="フォーム送信結果"></iframe>
+          </div>
+        </div>
+
+        <div class="closing-book">
+          <nav class="book-tabs closing-tabs" aria-label="ページを選ぶ">
+            <a class="book-tab" href="#home"><span>HOME</span></a>
+            <a class="book-tab" href="#story"><span>STORY</span></a>
+            <a class="book-tab" href="#works"><span>WORKS</span></a>
+            <a class="book-tab is-active" href="#connect"><span>CONNECT</span></a>
+          </nav>
+          <div class="closing-book__inner">
+            <img class="closing-book__character" src="./assets/image/犬後ろ姿-transparent.png" alt="後ろ姿の犬" />
+          </div>
+          <a class="closing-book__back" href="#home">↑ はじめに戻る</a>
+        </div>
+      </section>
+    </main>
+
+    <canvas class="marker-trail" aria-hidden="true"></canvas>
+
+    <div class="loader" role="status" aria-live="polite" aria-label="読み込み中">
+      <div class="loader__grain" aria-hidden="true"></div>
+
+      <div class="books" aria-hidden="true">
+        <div class="book book--left">
+          <span class="book__pages"></span>
+          <span class="book__cover"></span>
+        </div>
+
+        <div class="book book--center">
+          <span class="book__pages"></span>
+          <span class="book__cover">
+            <span class="book__border"></span>
+          </span>
+        </div>
+
+        <div class="book book--right">
+          <span class="book__pages"></span>
+          <span class="book__cover"></span>
+        </div>
+      </div>
+
+      <div class="loader__content">
+        <svg class="loading-arc" viewBox="0 0 360 160" aria-hidden="true">
+          <defs>
+            <path id="loading-path" d="M 54 122 Q 180 2 306 122" />
+          </defs>
+          <text>
+            <textPath href="#loading-path" startOffset="50%" text-anchor="middle">
+              loading<tspan class="loading-dots">.</tspan>
+            </textPath>
+          </text>
+        </svg>
+
+        <div class="character-wrap">
+          <img
+            class="character"
+            src="./assets/image/犬イラスト-transparent.png"
+            alt=""
+            width="1254"
+            height="1254"
+          />
+        </div>
+
+      </div>
+
+      <p class="loader__note">ページをひらいています</p>
+    </div>
+  </body>
+</html>
