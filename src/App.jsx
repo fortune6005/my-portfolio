@@ -10,6 +10,7 @@ import posterImage from "../assets/image/work-poster.png";
 import drawingImage from "../assets/image/work-drawing.png";
 import closingDog from "../assets/image/dog-back.png";
 import loadingDog from "../assets/image/dog-loading.png";
+import pageTurnCharacter from "../assets/image/page-turn-character.png";
 const sections = ["HOME", "STORY", "WORKS", "CONNECT"];
 
 function SectionLinks({ current, className = "chapter-nav" }) {
@@ -37,9 +38,7 @@ function BookTabs({ current, closing = false }) {
 }
 
 function Marquee({ comingSoon = false }) {
-  const copy = comingSoon
-    ? "COMING SOON　　　COMING SOON　　　COMING SOON　　　COMING SOON　　　"
-    : "FUKUNISHI KAIERI PORTFOLIO　　　FUKUNISHI KAIERI PORTFOLIO　　　";
+  const copy = "FUKUNISHI KAIRI PORTFOLIO　　　FUKUNISHI KAIRI PORTFOLIO　　　";
   return (
     <div className={`marquee${comingSoon ? " marquee--reverse" : ""}`} aria-hidden="true">
       <div className="marquee__track"><span>{copy}</span><span>{copy}</span></div>
@@ -235,7 +234,11 @@ function FlipBook({ children }) {
   );
 }
 
-const Corner = ({ direction, onClick, label }) => <button className={`page-corner page-corner--${direction}`} type="button" onClick={onClick} aria-label={label}><span>{direction === "next" ? "次のページ" : "前のページ"}</span></button>;
+const Corner = ({ direction, onClick, label }) => (
+  <button className={`page-corner page-corner--${direction}`} type="button" onClick={onClick} aria-label={label}>
+    <img className="page-corner__character" src={pageTurnCharacter} alt="" />
+  </button>
+);
 
 function Story() {
   return (
